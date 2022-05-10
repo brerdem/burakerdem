@@ -11,7 +11,7 @@ export default async function handler(req: any, res: any) {
       {
         From: {
           Email: "burak.erdem@clockwork.com.tr",
-          Name: "Contact Form",
+          Name: "burakerdem.com",
         },
         To: [
           {
