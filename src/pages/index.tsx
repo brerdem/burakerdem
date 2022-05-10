@@ -69,7 +69,7 @@ const Home: NextPage = () => {
         "w-full h-screen bg-black flex flex-row font-body text-gray-400 text-base"
       }
     >
-      <div className={"w-[250px] flex flex-col p-8"}>
+      <div className={"w-[300px] flex flex-col p-8"}>
         <Logo />
 
         {router && router.asPath.length > 0 && (
