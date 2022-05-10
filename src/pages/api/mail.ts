@@ -1,6 +1,6 @@
 const mailjet = require("node-mailjet").connect(
-  "7270c0a7f561cd98fde0ac9d4c872fcd",
-  "d663303b6d8d190360a0e28ba0520198"
+  "af89eec4c2ba6df69b2dbe8e2d03ccaf",
+  "0da66a6931d5ea9bcbf1edd8b5045330"
 );
 
 export default async function handler(req: any, res: any) {
