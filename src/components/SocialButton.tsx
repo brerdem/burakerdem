@@ -15,7 +15,7 @@ const SocialButton = ({ item }: any) => {
           <path d={item.logoPath} />
         </svg>
       ) : (
-        <img src={"images/insta.svg"} width={42} height={42} />
+        <img src={"images/insta.svg"} width={42} height={42} alt={item.name} />
       )}
       <span className={`ml-4 font-hand text-lg ${hover && "text-white"}`}>
         {item.suffixText}

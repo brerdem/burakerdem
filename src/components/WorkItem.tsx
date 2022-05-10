@@ -17,6 +17,7 @@ const WorkItem = ({ item }: any): ReactElement => {
         className={`w-[300px] ${
           hover ? "h-0" : "h-[150px]"
         } object-cover transition-all`}
+        alt={item.key}
       />
 
       <div className={"p-4"}>

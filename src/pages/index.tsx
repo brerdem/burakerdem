@@ -8,6 +8,7 @@ import Contact from "@components/sections/Contact";
 
 import { Element, scroller } from "react-scroll";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 const sections = [
   {
@@ -64,44 +65,49 @@ const Home: NextPage = () => {
   }, [router]);
 
   return (
-    <div
-      className={
-        "w-full h-screen bg-black flex flex-row font-body text-gray-400 text-base"
-      }
-    >
-      <div className={"w-[300px] flex flex-col p-8"}>
-        <Logo />
+    <>
+      <Head>
+        <title>Burak Erdem</title>
+      </Head>
+      <div
+        className={
+          "w-full h-screen bg-black flex flex-row font-body text-gray-400 text-base"
+        }
+      >
+        <div className={"w-[300px] flex flex-col p-8"}>
+          <Logo />
 
-        {router && router.asPath.length > 0 && (
-          <div className={"ml-6 mt-8"}>
-            {sections.map((item) => (
-              <div
-                key={item.key}
-                onClick={goToSection(item.link)}
-                data-pseudo={item.menuText}
-                className={`cursor-pointer font-sans font-bold relative my-8 text-3xl ${
-                  currentRoute === item.link ? pseudoStyles : ""
-                }`}
-              >
-                {item.menuText}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-      <div className={"w-full h-full overflow-hidden px-10"} id={"container"}>
-        {sections.map((section) => (
-          <Element name={section.link} key={`section-${section.key}`}>
-            <div className={"pt-10 w-full h-screen overflow-hidden"}>
-              <h2 className={"text-5xl font-sans mb-8"}>
-                {section.headerTitle}
-              </h2>
-              {section.component}
+          {router && router.asPath.length > 0 && (
+            <div className={"ml-6 mt-8"}>
+              {sections.map((item) => (
+                <div
+                  key={item.key}
+                  onClick={goToSection(item.link)}
+                  data-pseudo={item.menuText}
+                  className={`cursor-pointer font-sans font-bold relative my-8 text-3xl ${
+                    currentRoute === item.link ? pseudoStyles : ""
+                  }`}
+                >
+                  {item.menuText}
+                </div>
+              ))}
             </div>
-          </Element>
-        ))}
+          )}
+        </div>
+        <div className={"w-full h-full overflow-hidden px-10"} id={"container"}>
+          {sections.map((section) => (
+            <Element name={section.link} key={`section-${section.key}`}>
+              <div className={"pt-10 w-full h-screen overflow-hidden"}>
+                <h2 className={"text-5xl font-sans mb-8"}>
+                  {section.headerTitle}
+                </h2>
+                {section.component}
+              </div>
+            </Element>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -6,6 +6,7 @@ const Who = (): ReactElement => {
       <img
         src={"/images/me.jpg"}
         className={"w-[250px] h-[250px] mr-10 rounded-md"}
+        alt={"Me"}
       />
 
       <div className={"w-full"}>
