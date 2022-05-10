@@ -10,7 +10,7 @@ export default async function handler(req: any, res: any) {
     Messages: [
       {
         From: {
-          Email: "info@burakerdem.com",
+          Email: "falsemech@gmail.com",
           Name: "Contact Form",
         },
         To: [
