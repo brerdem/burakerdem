@@ -48,7 +48,7 @@ module.exports = {
       },
       animation: {
         gradientSwipe: "gradientSwipe 3s ease-out infinite alternate",
-        noise2sec: "noiseAnim 2s infinite linear alternate-reverse",
+        noise2sec: "noiseAnim 1.5s infinite linear alternate-reverse",
         noise3sec: "noiseAnim 3s infinite linear alternate-reverse",
         animText: "animText 3s ease 1s infinite",
       },

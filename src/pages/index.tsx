@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Logo from "@components/Logo";
 import Who from "@components/sections/Who";
 import Works from "@components/sections/Works";
@@ -7,6 +7,9 @@ import Skills from "@components/sections/Skills";
 import Contact from "@components/sections/Contact";
 
 import { Element, scroller } from "react-scroll";
+
+import useScrollInfo from "@bongione/react-element-scroll-hook";
+
 import { useRouter } from "next/router";
 import Head from "next/head";
 
@@ -48,11 +51,19 @@ const Home: NextPage = () => {
   const router = useRouter();
   const [currentRoute, setCurrentRoute] = useState("/");
 
+  const [scrollInfo, setRef] = useScrollInfo();
+
+  console.log("scrollInfo.y.percentage -->", scrollInfo.y.percentage);
+
   const goToSection = (link: string) => () => {
     router.push(link, link, {
       shallow: true,
     });
   };
+
+  const handleSetRef = useCallback((ref: HTMLDivElement | null) => {
+    setRef(ref as HTMLElement);
+  }, []);
 
   useEffect(() => {
     if (router) {
@@ -64,6 +75,7 @@ const Home: NextPage = () => {
     }
   }, [router]);
 
+  // @ts-ignore
   return (
     <>
       <Head>
@@ -94,7 +106,11 @@ const Home: NextPage = () => {
             </div>
           )}
         </div>
-        <div className={"w-full h-full overflow-hidden px-10"} id={"container"}>
+        <div
+          className={"w-full h-full overflow-hidden px-10"}
+          id={"container"}
+          ref={handleSetRef}
+        >
           {sections.map((section) => (
             <Element name={section.link} key={`section-${section.key}`}>
               <div className={"pt-10 w-full h-screen overflow-hidden"}>
