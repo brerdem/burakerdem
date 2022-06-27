@@ -10,7 +10,7 @@ const Logo = () => {
         maskImage: "url(images/logo.svg)",
         WebkitMaskImage: "url(images/logo.svg)",
       }}
-      className={"animate-gradientSwipe w-[150px] h-[150px]"}
+      className={"animate-gradientSwipe md:w-44 md:h-44 w-16 h-16"}
     />
   );
 };

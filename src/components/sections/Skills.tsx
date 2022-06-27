@@ -195,26 +195,51 @@ const skillSet = [
 
 const Skills = (): ReactElement => {
   return (
-    <div className={styles.scrollContent}>
-      <div className={"w-full mb-24"}>
+    <>
+      <div className={`${styles.scrollContent} md:block hidden`}>
+        <div className={"w-full mb-24"}>
+          {skillSet.map((cat) => (
+            <div className={"flex flex-row flex-wrap h-64"} key={cat.category}>
+              <div
+                className={
+                  "text-2xl font-sans rounded-lg tracking-wider font-thin text-slate-300 [writing-mode:vertical-lr] [text-orientation:upright] flex text-center justify-center items-center bg-gray-800 h-60 w-10"
+                }
+              >
+                {cat.category}
+              </div>
+              {cat.skills.map((item) => (
+                <div className={"m-6"} key={item.name}>
+                  <SkillItem item={item} />
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="md:hidden">
         {skillSet.map((cat) => (
-          <div className={"flex flex-row flex-wrap h-64"} key={cat.category}>
+          <div className={"flex flex-col"} key={cat.category}>
+            <h4 className="text-2xl font-sans rounded-lg tracking-widest font-thin text-slate-300 bg-gray-800 h-10 flex text-center justify-center items-center">
+              {cat.category}
+            </h4>
+
             <div
               className={
-                "text-2xl font-sans rounded-lg tracking-wider font-thin text-slate-300 [writing-mode:vertical-lr] [text-orientation:upright] flex text-center justify-center items-center bg-gray-800 h-60 w-10"
+                "my-12 overflow-x-scroll w-full flex flex-wrap snap-mandatory snap-x no-scrollbar"
               }
             >
-              {cat.category}
-            </div>
-            {cat.skills.map((item) => (
-              <div className={"m-6"} key={item.name}>
-                <SkillItem item={item} />
+              <div className={"flex flex-row space-x-12"}>
+                {cat.skills.map((item) => (
+                  <div key={item.name}>
+                    <SkillItem item={item} />
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

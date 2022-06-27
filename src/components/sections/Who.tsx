@@ -2,14 +2,18 @@ import React, { ReactElement } from "react";
 
 const Who = (): ReactElement => {
   return (
-    <div className={"flex flex-row w-full items-start"}>
+    <div
+      className={
+        "flex md:flex-row w-full md:items-start flex-col items-center justify-center"
+      }
+    >
       <img
         src={"/images/me.jpg"}
-        className={"w-[250px] h-[250px] mr-10 rounded-md"}
+        className={"w-[250px] h-[250px] md:mr-10 rounded-md"}
         alt={"Me"}
       />
 
-      <div className={"w-full"}>
+      <div className={"w-full md:mt-0 mt-12"}>
         <p>
           4x years old senior developer who resides in Istanbul, Turkey. Started
           with a Commodore 64 when I was kid, I quickly became passionated about

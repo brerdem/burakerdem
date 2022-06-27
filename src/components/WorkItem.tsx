@@ -8,6 +8,7 @@ const WorkItem = ({ item }: any): ReactElement => {
     <div
       onMouseOver={() => setHover(true)}
       onMouseOut={() => setHover(false)}
+      onClick={() => setHover(!hover)}
       className={
         "w-[300px] cursor-pointer bg-slate-700 rounded-md overflow-hidden"
       }

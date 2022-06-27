@@ -48,6 +48,9 @@ const items = [
 const Works = (): ReactElement => {
   return (
     <div className={"flex flex-wrap flex-row"}>
+      <h5 className="md:hidden text-xl text-center w-full mb-8">
+        Tap cards to see more
+      </h5>
       {items.map((item) => (
         <div className={"m-4"} key={item.key}>
           <WorkItem item={item} />

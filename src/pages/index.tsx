@@ -12,6 +12,8 @@ import useScrollInfo from "@bongione/react-element-scroll-hook";
 
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { FiMenu, FiXCircle } from "react-icons/fi";
+import { MdClose } from "react-icons/md";
 
 const sections = [
   {
@@ -50,20 +52,14 @@ const pseudoStyles =
 const Home: NextPage = () => {
   const router = useRouter();
   const [currentRoute, setCurrentRoute] = useState("/");
-
-  const [scrollInfo, setRef] = useScrollInfo();
-
-  console.log("scrollInfo.y.percentage -->", scrollInfo.y.percentage);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const goToSection = (link: string) => () => {
+    setMenuOpen(false);
     router.push(link, link, {
       shallow: true,
     });
   };
-
-  const handleSetRef = useCallback((ref: HTMLDivElement | null) => {
-    setRef(ref as HTMLElement);
-  }, []);
 
   useEffect(() => {
     if (router) {
@@ -83,11 +79,31 @@ const Home: NextPage = () => {
       </Head>
       <div
         className={
-          "w-full h-screen bg-black flex flex-row font-body text-gray-400 text-base"
+          "w-full md:h-screen h-full bg-black flex md:flex-row flex-col font-body text-gray-400 text-base"
         }
       >
-        <div className={"w-[300px] flex flex-col p-8"}>
+        <header className="md:hidden flex flex-row justify-between px-6 items-center h-24 w-full bg-black fixed">
           <Logo />
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className={"outline-none"}
+          >
+            {menuOpen ? (
+              <MdClose color={"white"} size={32} />
+            ) : (
+              <FiMenu color={"white"} size={32} />
+            )}
+          </button>
+        </header>
+
+        <div
+          className={`md:w-[300px] w-3/4 flex flex-col p-8 md:bg-black bg-black/90 h-screen md:static absolute z-[1000] transition-transform duration-500 md:translate-x-0 ${
+            menuOpen ? "-translate-x-0" : "-translate-x-full"
+          }`}
+        >
+          <div className={"hidden md:block"}>
+            <Logo />
+          </div>
 
           {router && router.asPath.length > 0 && (
             <div className={"ml-6 mt-8"}>
@@ -107,14 +123,23 @@ const Home: NextPage = () => {
           )}
         </div>
         <div
-          className={"w-full h-full overflow-hidden px-10"}
+          className={
+            "w-full h-screen md:overflow-hidden px-10 overflow-x-hidden overflow-y-auto md:mt-0 mt-24"
+          }
           id={"container"}
-          ref={handleSetRef}
         >
           {sections.map((section) => (
             <Element name={section.link} key={`section-${section.key}`}>
-              <div className={"pt-10 w-full h-screen overflow-hidden"}>
-                <h2 className={"text-5xl font-sans mb-8"}>
+              <div
+                className={
+                  "md:py-10 py-6 w-full md:h-screen h-full overflow-hidden"
+                }
+              >
+                <h2
+                  className={
+                    "text-5xl font-sans mb-8 w-full text-center md:text-left"
+                  }
+                >
                   {section.headerTitle}
                 </h2>
                 {section.component}

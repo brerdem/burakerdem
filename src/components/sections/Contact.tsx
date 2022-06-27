@@ -83,13 +83,13 @@ const Contact = (): ReactElement => {
 
   return (
     <div className={"w-full h-full"}>
-      <div className={"flex flex-row"}>
+      <div className={"flex md:flex-row flex-col pb-8 pt-0"}>
         <div className={"w-96"}>
           {items.map((item) => (
             <SocialButton item={item} key={item.name} />
           ))}
         </div>
-        <div className={"w-96 flex flex-col mt-8"}>
+        <div className={"md:w-96 w-full flex flex-col mt-8"}>
           <p className={"text-md mb-4 "}>
             If you&apos;d like to drop some lines please feel free to fill the
             form below
