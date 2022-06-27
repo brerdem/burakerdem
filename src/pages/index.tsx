@@ -112,7 +112,7 @@ const Home: NextPage = () => {
                   key={item.key}
                   onClick={goToSection(item.link)}
                   data-pseudo={item.menuText}
-                  className={`cursor-pointer font-sans font-bold relative my-8 text-3xl ${
+                  className={`cursor-pointer font-sans font-bold relative my-8 text-3xl select-none ${
                     currentRoute === item.link ? pseudoStyles : ""
                   }`}
                 >
