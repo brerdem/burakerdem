@@ -79,7 +79,7 @@ const Home: NextPage = () => {
       </Head>
       <div
         className={
-          "w-full md:h-screen h-full bg-black flex md:flex-row flex-col font-body text-gray-400 text-base"
+          "w-full md:h-screen h-screen bg-black flex md:flex-row flex-col font-body text-gray-400 "
         }
       >
         <header className="md:hidden flex flex-row justify-between px-6 items-center h-24 w-full bg-black fixed">
@@ -89,15 +89,15 @@ const Home: NextPage = () => {
             className={"outline-none"}
           >
             {menuOpen ? (
-              <MdClose color={"white"} size={32} />
+              <MdClose color={"lightgrey"} size={32} />
             ) : (
-              <FiMenu color={"white"} size={32} />
+              <FiMenu color={"lightgrey"} size={32} />
             )}
           </button>
         </header>
 
         <div
-          className={`md:w-[300px] w-3/4 flex flex-col p-8 md:bg-black bg-black/90 h-screen md:static absolute z-[1000] transition-transform duration-500 md:translate-x-0 ${
+          className={`md:w-[300px] w-3/4 h-screen flex flex-col justify-stretch p-4 md:p-8 md:bg-black bg-black/50 md:static absolute z-[1000] transition-transform duration-500 md:translate-x-0 backdrop-blur-md ${
             menuOpen ? "-translate-x-0" : "-translate-x-full"
           }`}
         >
@@ -121,6 +121,9 @@ const Home: NextPage = () => {
               ))}
             </div>
           )}
+          <span className="absolute bottom-10 md:hidden text-sm pl-6 font-body">
+            Copyright&copy; {new Date().getFullYear()} burakerdem.com
+          </span>
         </div>
         <div
           className={
@@ -132,7 +135,7 @@ const Home: NextPage = () => {
             <Element name={section.link} key={`section-${section.key}`}>
               <div
                 className={
-                  "md:py-10 py-6 w-full md:h-screen h-full overflow-hidden"
+                  "md:py-10 py-6 w-full md:h-screen h-full md:overflow-hidden"
                 }
               >
                 <h2
@@ -147,6 +150,9 @@ const Home: NextPage = () => {
             </Element>
           ))}
         </div>
+      </div>
+      <div className="h-10 bottom-0 hidden md:block absolute text-sm text-center w-full text-gray-400 bg-black  pt-2 font-body">
+        Copyright&copy; {new Date().getFullYear()} burakerdem.com
       </div>
     </>
   );
