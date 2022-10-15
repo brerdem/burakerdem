@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
 import WorkItem from "@components/WorkItem";
+import styles from "../../../styles/Skills.module.css";
 
 const items = [
   {
@@ -52,15 +53,19 @@ const items = [
 
 const Works = (): ReactElement => {
   return (
-    <div className={"flex flex-wrap flex-row"}>
+    <div className={`${styles.scrollContent} pb-24`}>
       <h5 className="md:hidden text-xl text-center w-full mb-8">
         Tap cards to see more
       </h5>
-      {items.map((item) => (
-        <div className={"m-4"} key={item.key}>
-          <WorkItem item={item} />
-        </div>
-      ))}
+      <div
+        className={`flex flex-wrap flex-row lg:justify-start justify-center`}
+      >
+        {items.map((item) => (
+          <div className={"m-4"} key={item.key}>
+            <WorkItem item={item} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
