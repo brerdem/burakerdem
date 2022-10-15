@@ -36,12 +36,17 @@ const items = [
   {
     key: "thy",
     title: ["HR Web App", "IT Side Projects"],
-    desc: "I worked for 4 years at Istanbul Airport. I have developed custom planner for personnel vacation and day-offs",
+    desc: "I have worked for 4 years at Istanbul Airport and developed custom planner for personnel vacation and day-offs",
   },
   {
     key: "greenpeace",
     title: "Micro Site",
     desc: "Built a website where users can create their own unique character and make a human chain for global causes they can choose. Won couple of international awards",
+  },
+  {
+    key: "asus",
+    title: "Micro Site",
+    desc: "ASUS Repıblic of Gamers' promotional micro site. It had a custom CMS allowing to serve content for 20 different countries and 10 languages",
   },
 ];
 
