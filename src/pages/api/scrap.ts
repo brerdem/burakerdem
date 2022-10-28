@@ -21,7 +21,7 @@ export default async function handler(req: any, res: any) {
     if (imgHref) {
       const imgResp = await axios.get(imgHref, { responseType: "arraybuffer" });
 
-      const { data, info } = await sharp(imgResp.data)
+      const { data, info, err } = await sharp(imgResp.data)
         .resize(200, 200, {
           fit: sharp.fit.contain,
           background: { r: 255, g: 255, b: 255 },
