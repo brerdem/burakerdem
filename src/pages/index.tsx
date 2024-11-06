@@ -8,8 +8,6 @@ import Contact from "@components/sections/Contact";
 
 import { Element, scroller } from "react-scroll";
 
-import useScrollInfo from "@bongione/react-element-scroll-hook";
-
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { FiMenu, FiXCircle } from "react-icons/fi";

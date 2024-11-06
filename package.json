@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@bongione/react-element-scroll-hook": "^1.1.1",
     "axios": "^0.27.2",
     "cheerio": "^1.0.0-rc.12",
     "lodash": "^4.17.21",
