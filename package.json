@@ -13,6 +13,7 @@
     "cheerio": "^1.0.0-rc.12",
     "lodash": "^4.17.21",
     "next": "^15.0.2",
+    "next-plausible": "^3.12.3",
     "node-mailjet": "^3.4.1",
     "react": "^18",
     "react-countup": "^6.2.0",
