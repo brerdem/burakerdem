@@ -13,6 +13,12 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        <script
+          src="https://talktomy.site/embed.js"
+          data-website-id="88YUQWjEwdcZWoVBMdpAec"
+          data-color="#3B82F6"
+          data-icon="icon1"
+        ></script>
       </body>
     </Html>
   );
